@@ -3,7 +3,7 @@ set exrc
 set noswapfile
 set nobackup
 set encoding=utf-8
-set clipboard=unnamedplus
+set clipboard=unnamed
 set incsearch
 set noshowmode
 set background=dark

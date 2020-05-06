@@ -6,6 +6,10 @@
 export ZSH="/Users/Austin/.oh-my-zsh"
 export PS1="\u@\h:\W$ "
 
+
+export GOPATH="$(go env GOPATH)"
+export PATH="$PATH:$GOPATH/bin"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
