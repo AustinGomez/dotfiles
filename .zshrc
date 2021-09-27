@@ -1,14 +1,19 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-#
+
+# PATH
+# export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
+# export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+export LIBRARY_PATH=/opt/homebrew/lib
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/Austin/.oh-my-zsh"
-export PS1="\u@\h:\W$ "
+export ZSH="/Users/austin/.oh-my-zsh"
 
+# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-export GOPATH="$(go env GOPATH)"
-export PATH="$PATH:$GOPATH/bin"
+# Brew
+export PATH=/opt/homebrew/bin:$PATH
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -16,7 +21,12 @@ export PATH="$PATH:$GOPATH/bin"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="gruvbox"
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 #SOLARIZED_THEME="dark"
+#
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -76,7 +86,7 @@ ZSH_THEME="gruvbox"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git vi-mode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,5 +115,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias pip=/usr/local/bin/pip3
-alias python=/usr/local/bin/python3
+# alias pip=/usr/bin/pip3
+# alias python=/usr/bin/python3
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
+
+export CUDA_PATH=/usr
